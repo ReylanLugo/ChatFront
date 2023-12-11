@@ -1,3 +1,3 @@
 import io from "socket.io-client";
-const socket = io("http://localhost:5000");
+const socket = io("https://m7dg95vw-5000.use2.devtunnels.ms/");
 export default socket
