@@ -14,7 +14,7 @@ function LoginActions({ userPost }) {
 
   const Login = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/api/login", userPost);
+    const res = await axios.post("https://m7dg95vw-5000.use2.devtunnels.ms/api/login", userPost);
     if (res.data.result === userPost.username) {
       setUser(res.data.result);
       //TODO: colocar mas datos del usuario, como podria ser direcciones, correos y demas
@@ -36,7 +36,7 @@ function LoginActions({ userPost }) {
 
   const Register = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/api/user", userPost);
+    const res = await axios.post("https://m7dg95vw-5000.use2.devtunnels.ms/api/user", userPost);
     if (res.data.result === userPost.username) {
       setUser(res.data.result);
       //TODO: colocar mas datos del usuario, como podria ser direcciones, correos y demas

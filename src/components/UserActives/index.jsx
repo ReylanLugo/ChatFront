@@ -7,7 +7,7 @@ function UserActives({ userList }) {
   const { chat } = useContext(UserContext);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/chats/${chat}/users`).then((res) => {
+    axios.get(`https://m7dg95vw-5000.use2.devtunnels.ms/api/chats/${chat}/users`).then((res) => {
       setUsersInfo(JSON.parse(res.data));
       console.log(JSON.parse(res.data) + "usersInfo");
       console.log(userList + " userList");

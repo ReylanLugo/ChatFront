@@ -27,7 +27,7 @@ function UserSettings({ setViewSettings, resultToast }) {
 
   const confirmPassword = async (e) => {
     setPassword(e.target.value);
-    const result = await axios.post("http://localhost:5000/api/login", {
+    const result = await axios.post("https://m7dg95vw-5000.use2.devtunnels.ms/api/login", {
       username: user,
       password: e.target.value,
     });
@@ -45,7 +45,7 @@ function UserSettings({ setViewSettings, resultToast }) {
       avatar: avatar,
       newPassword: newPassword || null,
     };
-    const result = await axios.put("http://localhost:5000/api/user", newUser);
+    const result = await axios.put("https://m7dg95vw-5000.use2.devtunnels.ms/api/user", newUser);
     if (result.data.result === user) {
       setUserData((prev) => {
         return {

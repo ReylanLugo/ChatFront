@@ -11,7 +11,7 @@ function ChatActives() {
 
   useEffect(() => {
     setActiveTab(true);
-    axios.get("http://localhost:5000/api/chats").then((res) => {
+    axios.get("https://m7dg95vw-5000.use2.devtunnels.ms/api/chats").then((res) => {
       setMyChats(res.data.filter((chat) => chat.users.includes(user)));
     })
   }, []);
@@ -26,7 +26,7 @@ function ChatActives() {
     if (!name) return;
     // setChats((state) => [...state, { _id: Date.now(), name: name}]);
     axios
-      .post("http://localhost:5000/api/chats", { name, user: user })
+      .post("https://m7dg95vw-5000.use2.devtunnels.ms/api/chats", { name, user: user })
       .then((res) => {
         setMyChats([...myChats, { _id: Date.now(), name: name }]);
         // Agregamos el cliente al grupo
@@ -44,7 +44,7 @@ function ChatActives() {
 
   const removeChat = (e, name) => {
     e.stopPropagation();
-    axios.put('http://localhost:5000/api/user/chats', {
+    axios.put('https://m7dg95vw-5000.use2.devtunnels.ms/api/user/chats', {
       name,
       user: user
     }).then((res) => {

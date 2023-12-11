@@ -19,7 +19,7 @@ function ChatBox() {
 
     socket.on("onDeleteMessage", (id) => {
       axios
-      .post("http://localhost:5000/api/messages", { chat: chat })
+      .post("https://m7dg95vw-5000.use2.devtunnels.ms/api/messages", { chat: chat })
       .then((res) => {
         if (JSON.stringify(messages) !== JSON.stringify(res.data)) {
           //Usamos el JSON.stringify para comparar el estado ya que si comparo un array solo se compara la referencia en memoria
@@ -31,7 +31,7 @@ function ChatBox() {
     });
 
     axios
-      .post("http://localhost:5000/api/messages", { chat: chat })
+      .post("https://m7dg95vw-5000.use2.devtunnels.ms/api/messages", { chat: chat })
       .then((res) => {
         if (JSON.stringify(messages) !== JSON.stringify(res.data)) {
           //Usamos el JSON.stringify para comparar el estado ya que si comparo un array solo se compara la referencia en memoria

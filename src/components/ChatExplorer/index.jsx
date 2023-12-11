@@ -13,7 +13,7 @@ function ChatExplorer() {
     useContext(UserContext);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/chats").then((res) => {
+    axios.get("https://m7dg95vw-5000.use2.devtunnels.ms/api/chats").then((res) => {
       setChats(res.data.filter((chat) => !chat.users.includes(user)));
     });
   }, [refresh]);
@@ -24,7 +24,7 @@ function ChatExplorer() {
 
   const exploreInChat = (chatE) => {
     setChatSelect(chatE.name);
-    axios.post("http://localhost:5000/api/user/chats", {
+    axios.post("https://m7dg95vw-5000.use2.devtunnels.ms/api/user/chats", {
       user: user,
       chat: chatE.name,
     }).then((res) => {
