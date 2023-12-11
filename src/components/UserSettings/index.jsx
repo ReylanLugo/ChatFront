@@ -27,19 +27,16 @@ function UserSettings({ setViewSettings, resultToast }) {
 
   const confirmPassword = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value + 'clave?')
     const result = axios.post("https://m7dg95vw-5000.use2.devtunnels.ms/api/login", {
       username: user,
       password: e.target.value,
-    }).then((res) => {
-      console.log(res)
-      // if (res.data.result === user) {
-      //   setNeedConfirmPassword(false);
-      // } else {
-      //   setNeedConfirmPassword(true);
-      // }
+    }).then((res) => { 
+      if (res.data.result === 'User already logged in') {
+        setNeedConfirmPassword(false);
+      } else {
+        setNeedConfirmPassword(true);
+      }
     });
-    console.log(result.data.result)
   };
 
   const updatedUser = async () => {
