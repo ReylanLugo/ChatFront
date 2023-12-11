@@ -27,12 +27,12 @@ function UserSettings({ setViewSettings, resultToast }) {
 
   const confirmPassword = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value)
+    console.log(e.target.value + 'clave?')
     const result = axios.post("https://m7dg95vw-5000.use2.devtunnels.ms/api/login", {
       username: user,
       password: e.target.value,
     }).then((res) => {
-      if (result.data.result === user) {
+      if (res.data.result === user) {
         setNeedConfirmPassword(false);
       } else {
         setNeedConfirmPassword(true);
