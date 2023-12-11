@@ -4,10 +4,13 @@ import axios from "axios";
 import socket from "../../helpers/socket";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
+import NewChatForm from "../NewChatForm";
 
 function ChatActives() {
   const { myChats, setChatSelect, chat, user, setMyChats } = useContext(UserContext);
   const [activeTab, setActiveTab] = useState(true);
+  const [newChatShow, setNewChatShow] = useState(false);
+
 
   useEffect(() => {
     setActiveTab(true);
@@ -22,23 +25,7 @@ function ChatActives() {
 
   const addChat = (e) => {
     e.stopPropagation();
-    const name = prompt("Name");
-    if (!name) return;
-    // setChats((state) => [...state, { _id: Date.now(), name: name}]);
-    axios
-      .post("https://m7dg95vw-5000.use2.devtunnels.ms/api/chats", { name, user: user })
-      .then((res) => {
-        setMyChats([...myChats, { _id: Date.now(), name: name }]);
-        // Agregamos el cliente al grupo
-        socket.emit('changeChat', {
-          user,
-          chat: name,
-          oldChat: chat
-        });
-      });
-      
-    setChatSelect(name);
-    
+    setNewChatShow(true);
   };
 
 
@@ -75,9 +62,13 @@ function ChatActives() {
     <div
       className={`px-4 rounded bg-slate-800 before:hidden ${
         activeTab  ? " pb-4" : ""
-      }`}
-      
+      }`} 
     >
+
+      {newChatShow ? (
+        <NewChatForm setToggle={setNewChatShow} />
+      ): null}
+
       <summary className="text-lg list-none py-4 cursor-pointer" onClick={toggleActiveTab}>
         Chats Activos <a className="float-right text-xl font-bold cursor-pointer" onClick={addChat}><IoMdAddCircleOutline /></a>
       </summary>
