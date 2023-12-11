@@ -25,18 +25,20 @@ function UserSettings({ setViewSettings, resultToast }) {
     }, 3000);
   };
 
-  const confirmPassword = async (e) => {
+  const confirmPassword = (e) => {
     setPassword(e.target.value);
-    const result = await axios.post("https://m7dg95vw-5000.use2.devtunnels.ms/api/login", {
+    console.log(e.target.value)
+    const result = axios.post("https://m7dg95vw-5000.use2.devtunnels.ms/api/login", {
       username: user,
       password: e.target.value,
+    }).then((res) => {
+      if (result.data.result === user) {
+        setNeedConfirmPassword(false);
+      } else {
+        setNeedConfirmPassword(true);
+      }
     });
     console.log(result.data.result)
-    if (result.data.result === user) {
-      setNeedConfirmPassword(false);
-    } else {
-      setNeedConfirmPassword(true);
-    }
   };
 
   const updatedUser = async () => {
