@@ -29,6 +29,7 @@ function ChatActions() {
           value={msg}
           className="relative bottom-0 block w-full px-3 focus:ring-teal-500 focus:ring-2 focus-visible:outline-0"
           placeholder="Escribe tu mensaje..."
+          disabled={chat === ""}
         />
         <button onClick={sendMessage} className="bg-teal-900 rounded-none">
           Enviar
