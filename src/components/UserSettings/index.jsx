@@ -32,11 +32,12 @@ function UserSettings({ setViewSettings, resultToast }) {
       username: user,
       password: e.target.value,
     }).then((res) => {
-      if (res.data.result === user) {
-        setNeedConfirmPassword(false);
-      } else {
-        setNeedConfirmPassword(true);
-      }
+      console.log(res)
+      // if (res.data.result === user) {
+      //   setNeedConfirmPassword(false);
+      // } else {
+      //   setNeedConfirmPassword(true);
+      // }
     });
     console.log(result.data.result)
   };
