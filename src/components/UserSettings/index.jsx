@@ -27,6 +27,10 @@ function UserSettings({ setViewSettings, resultToast }) {
 
   const confirmPassword = (e) => {
     setPassword(e.target.value);
+    setNeedConfirmPassword(true);
+    if (newPassword) {
+      setNewPassword("");
+    }
     const result = axios.post("https://m7dg95vw-5000.use2.devtunnels.ms/api/checkUser", {
       username: user,
       password: e.target.value,
@@ -91,14 +95,14 @@ function UserSettings({ setViewSettings, resultToast }) {
             <label className="block">Confirma tu contraseña</label>
             <input
               type="password"
-              className="p-2 text-white w-full"
+              className="p-2 text-white w-full bg-slate-900"
               value={password}
               onChange={confirmPassword}
             />
             <label className="block mt-2">Nueva contraseña</label>
             <input
               type="password"
-              className="p-2 text-white w-full"
+              className="p-2 text-white w-full bg-slate-900 disabled:bg-slate-700"
               value={newPassword}
               disabled={needConfirmPassword}
               onChange={(e) => setNewPassword(e.target.value)}

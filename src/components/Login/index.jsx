@@ -19,7 +19,7 @@ function Login() {
           <input
             type="text"
             placeholder="Username"
-            className="mb-4 border border-gray-300 rounded px-3 py-2 block w-full"
+            className="mb-4 border border-gray-300 rounded px-3 py-2 block w-full bg-slate-900"
             onChange={(e) =>
               setUserpost({ ...userPost, username: e.target.value })
             }
@@ -30,7 +30,7 @@ function Login() {
           <input
             type="password"
             placeholder="Password"
-            className="mb-4 border border-gray-300 rounded px-3 py-2 block w-full"
+            className="mb-4 border border-gray-300 rounded px-3 py-2 block w-full bg-slate-900"
             onChange={(e) =>
               setUserpost({ ...userPost, password: e.target.value })
             }

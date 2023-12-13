@@ -36,7 +36,7 @@ function NewChatForm({ setToggle }) {
           <input
             type="text"
             onChange={(e) => setName(e.target.value)}
-            className="relative block w-full p-3 focus:ring-teal-500 focus:ring-2 focus-visible:outline-0"
+            className="relative block w-full p-3 bg-slate-900 focus:ring-teal-500 focus:ring-2 focus-visible:outline-0"
           />
           <button className="mt-4 bg-red-600 mr-4" onClick={() => setToggle(false)}>Cancelar</button>
           <button className="mt-4 bg-green-600" onClick={complete}>Crear</button>
